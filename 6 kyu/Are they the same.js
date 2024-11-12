@@ -1,5 +1,5 @@
 function comp(array1, array2){
-    let result = false;
+    let result = [];
 
     for(let e1 of array1) {
         console.log(e1);
@@ -13,9 +13,11 @@ function comp(array1, array2){
             }
         }
         if(sq_index !== -1){
-            result = true;
+            result.push(true);
+        }else {
+            result.push(false)
         }
     }
 
-    return result;
+    return result.reduce((prev, curr) => prev && curr, true);
 }
