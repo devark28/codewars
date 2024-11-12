@@ -18,6 +18,8 @@ function comp(array1, array2){
             result.push(false)
         }
     }
-
+    if(result.length !== array1.length || result.length !== array2.length){
+        return false
+    }
     return result.reduce((prev, curr) => prev && curr, true);
 }
