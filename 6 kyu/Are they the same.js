@@ -6,8 +6,8 @@ function comp(array1, array2){
         const sq = e1 ** 2;
         let sq_index = -1;
         for(let e2_i in array2){
-            console.log(sq, array2[e2_i], sq === array2[e2_i]);
             if(sq === array2[e2_i]){
+                console.log(sq, array2[e2_i], sq === array2[e2_i]);
                 sq_index = e2_i;
                 break;
             }
