@@ -1,12 +1,10 @@
 function cakes(recipe, available) {
-  let possible_cakes = Infinity;
-  for(let [name, quantity] of Object.entries(recipe)){
+  return Object.entries(recipe).reduce((possible_cakes, [name, quantity]) => {
     let items = available[name]/quantity
     if(!Number.isNaN(items)){
-      possible_cakes = Math.min(possible_cakes, Math.trunc(items))
+      return Math.min(possible_cakes, Math.trunc(items))
     }else{
       return 0;
     }
-  }
-  return possible_cakes;
+  }, Infinity);
 }
