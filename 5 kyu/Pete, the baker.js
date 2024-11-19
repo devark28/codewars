@@ -7,9 +7,7 @@ function cakes(recipe, available) {
         if(possible_cakes === undefined){
           possible_cakes = Math.trunc(items);
         }else{
-          if(possible_cakes > items){
-            possible_cakes = Math.trunc(items);
-          }
+          possible_cakes = Math.min(possible_cakes, Math.trunc(items))
         }
       }else{
         return 0;
