@@ -1,14 +1,13 @@
 function getPINs(observed) {
-    let adjacent = [];
-    observed.split("").forEach((num) => {
-        if(adjacent.length === 0){
-            adjacent = getNeighbours(num);
+    let adjacent = observed.split("").reduce((prev, num) => {
+        if(prev.length === 0){
+            return getNeighbours(num);
         }else{
-            adjacent = adjacent.flatMap(adj => {
+            return prev.flatMap(adj => {
                 return getNeighbours(num).map(nei => adj + nei)
             })
         }
-    });
+    }, []);
     adjacent = [...new Set(adjacent)]
     return adjacent;
 }
