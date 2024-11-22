@@ -9,7 +9,7 @@ function getPINs(observed) {
             })
         }
     });
-    adjacent = adjacent.filter((comb, index) => index === adjacent.indexOf(comb))
+    adjacent = [...new Set(adjacent)]
     return adjacent;
 }
 
