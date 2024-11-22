@@ -29,5 +29,5 @@ function getNeighbours(number){
     return neighbourMap[number];
 }
 
-// console.log(getPINs("8"), "**");
-// console.log(["5", "7", "8", "9", "0"], "<-")
+console.log(getPINs("8"), "**");
+console.log(["5", "7", "8", "9", "0"], "<-")
