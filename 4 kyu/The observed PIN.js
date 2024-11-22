@@ -1,5 +1,5 @@
 function getPINs(observed) {
-    let adjacent = observed.split("").reduce((prev, num) => {
+    return [...new Set(observed.split("").reduce((prev, num) => {
         if(prev.length === 0){
             return getNeighbours(num);
         }else{
@@ -7,9 +7,7 @@ function getPINs(observed) {
                 return getNeighbours(num).map(nei => adj + nei)
             })
         }
-    }, []);
-    adjacent = [...new Set(adjacent)]
-    return adjacent;
+    }, []))];
 }
 
 function getNeighbours(number){
