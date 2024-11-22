@@ -1,8 +1,8 @@
 function getPINs(observed) {
     return [...new Set(observed.split("").reduce((prev, num) => {
-        if(prev.length === 0){
+        if (prev.length === 0) {
             return getNeighbours(num);
-        }else{
+        } else {
             return prev.flatMap(adj => {
                 return getNeighbours(num).map(nei => adj + nei)
             })
@@ -10,7 +10,7 @@ function getPINs(observed) {
     }, []))];
 }
 
-function getNeighbours(number){
+function getNeighbours(number) {
     const neighbourMap = {
         "1": ["1", "2", "4"],
         "2": ["1", "2", "3", "5"],
