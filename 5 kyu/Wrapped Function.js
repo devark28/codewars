@@ -1,6 +1,5 @@
 Function.prototype.wrap = function(callback){
-  const originalMethodReference = this;
   return (yourName, myName) => {
-    return callback(originalMethodReference, yourName, myName);
+    return callback(this, yourName, myName);
   }
 }
