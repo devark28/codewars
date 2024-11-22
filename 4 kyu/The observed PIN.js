@@ -14,28 +14,20 @@ function getPINs(observed) {
 }
 
 function getNeighbours(number){
-    switch(number){
-        case "1":
-            return ["1", "4", "2"]
-        case "2":
-            return ["2", "1", "3", "5"]
-        case "3":
-            return ["3", "2", "6"]
-        case "4":
-            return ["4", "1", "5", "7"]
-        case "5":
-            return ["5", "2", "4", "6", "8"]
-        case "6":
-            return ["6", "3", "5", "9"]
-        case "7":
-            return ["7", "4", "8"]
-        case "8":
-            return ["8", "5", "7", "9", "0"]
-        case "9":
-            return ["9", "6", "8"]
-        case "0":
-            return ["0", "8"]
-    }
+    const neighbourMap = {
+        "1": ["1", "2", "4"],
+        "2": ["1", "2", "3", "5"],
+        "3": ["2", "3", "6"],
+        "4": ["1", "4", "5", "7"],
+        "5": ["2", "4", "5", "6", "8"],
+        "6": ["3", "5", "6", "9"],
+        "7": ["4", "7", "8"],
+        "8": ["5", "7", "8", "9", "0"],
+        "9": ["6", "8", "9"],
+        "0": ["0", "8"]
+    };
+
+    return neighbourMap[number];
 }
 
 // console.log(getPINs("8"), "**");
