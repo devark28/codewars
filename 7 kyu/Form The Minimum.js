@@ -1,4 +1,3 @@
 function minValue(values){
-  return Number(values.filter((n, i) => i == values.indexOf(n))
-    .sort((a, b) => a - b).join(""))
+  return Number([...new Set(values)].sort((a, b) => a - b).join(""))
 }
