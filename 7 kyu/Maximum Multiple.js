@@ -1,10 +1,6 @@
 function maxMultiple(divisor, bound){
-  let result = bound;
-  for(let i = bound; i > 0; i--){
-    if(i % divisor == 0){
-      result = i;
-      break;
-    }
-  }
-  return result
+  return Array(bound).fill(null)
+    .map((_, i) => bound - i)
+    .filter(n => n % divisor == 0)
+    .reduce((prev, next) => next > prev ? next : prev, -Infinity)
 }
