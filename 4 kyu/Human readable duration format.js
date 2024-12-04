@@ -1,5 +1,6 @@
 function formatDuration (secs) {
-  let hours = Math.trunc(secs / 3600);
+  let days = Math.trunc(secs / 86400)
+  let hours = Math.trunc(secs / 3600) - (86400);
   let minutes = Math.trunc(secs / 60) - (hours * 60);
   let seconds = secs - (minutes * 60) - (hours * 3600);
   
@@ -21,7 +22,7 @@ function formatDuration (secs) {
   }else if(seconds > 0){
     result += `${seconds} second`
   }
-  return result;
+  return result ? result : "now";
 }
 
 console.log(formatDuration(1))
