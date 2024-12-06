@@ -7,7 +7,6 @@ function formatDuration (secs) {
   let hours = Math.trunc(secs / (60*60))   - (days * 24)    - (years * 365*24);
   let minutes = Math.trunc(secs / 60)    - (hours * 60)   - (days * 60*24)  - (years * 365*24*60);
   let seconds = Math.trunc(secs / 1)     - (minutes * 60) - (hours * 60*60) - (days * 60*60*24) - (years * 365*24*60*60);
-//   timestamp_array
   return [
     {value: years, label: " year"},
     {value: days, label: " day"},
@@ -16,9 +15,9 @@ function formatDuration (secs) {
     {value: seconds, label: " second"}
   ]
     .filter(comb => comb.value !== 0)
-    .reduce((str, comb) => {
+    .reduce((str, comb, index, arr) => {
       return str
-        + (comb.label !== " second" ? ", " : " and ")
+        + (index !== (arr.length - 1) ? ", " : " and ")
         + comb.value
         + comb.label
         + (comb.value > 1 ? "s" : "")
@@ -32,5 +31,3 @@ console.log(formatDuration(3600))
 console.log(formatDuration(3662))
 console.log(formatDuration(15731080)) // '182 days, 1 hour, 44 minutes and 40s ...
 console.log(formatDuration(9660900))
-
-//   return [tsa[0], tsa[1]].join(", ") + ", " + [tsa[2], tsa[3]].join(" and ");
