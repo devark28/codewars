@@ -1,12 +1,12 @@
 class Cube {
-  constructor(s){
-    this.side = s ? Math.abs(s) : 0
+  constructor(s=0){
+    this.setSide(s)
   }
   
   getSide() {
     return this.side; 
   }
-  setSide(n) {
+  setSide(n=0) {
     this.side = Math.abs(n);
   }
 }
