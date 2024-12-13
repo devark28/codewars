@@ -1,15 +1,12 @@
-const array = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-// const array = [
-//     [1, 2, 3, 4],
-//     [5, 6, 7, 8],
-//     [9, 11, 12, 13],
-//     [14, 15, 16, 17]
-// ]
-function getCellsAtLevel(level){
+snail = function(array) {
+  let results = []
+  for(let i=0; i<(Math.ceil(array[0].length/2));i++){
+    results = results.concat(getCellsAtLevel(array, i))
+  }
+  return results
+}
+
+function getCellsAtLevel(array, level){
     let results = Array((4*(array.length-(2*level)))-4)
     for(let i=level; i<(array.length-level); i++){
         let N = (array.length-(2*level))
@@ -41,11 +38,3 @@ function getCellsAtLevel(level){
     }
     return results
 }
-
-let results = []
-for(let i=0; i<(Math.ceil(array.length/2));i++){
-  results = results.concat(getCellsAtLevel(i))
-}
-console.log(results)
-
-
