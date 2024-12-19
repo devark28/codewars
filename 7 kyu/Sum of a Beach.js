@@ -1,21 +1,19 @@
 function sumOfABeach(beach) {
   const keywords = ['sand', 'water', 'fish', 'sun']
   let count = 0
-  let pointer = 0
   let given = beach.toLowerCase()
-  for(let pointer = 0; pointer < given.length; pointer++){
+  while(keywords.some(w => given.indexOf(w) !== -1)){
     keywords.forEach((keyword) => {
       let found = given.indexOf(keyword)
       if(found !== -1){
         count += 1
-//         pointer += keyword.length-1
-        console.log(keyword, ' in ', given)
         given = given.replace(keyword, '')
       }
     })
   }
   return count
 }
+
 
 // console.log(sumOfABeach("WAtErSlIde")) //                    ==>  1
 // console.log(sumOfABeach("GolDeNSanDyWateRyBeaChSuNN")) //    ==>  3
