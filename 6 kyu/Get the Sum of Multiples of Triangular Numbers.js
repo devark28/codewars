@@ -29,23 +29,7 @@ function sum_mult_triangnum(n, m) {
     for(let i=2; i<=n; i++){
         nums.push(i*(i+1)/2);
     }
-    // nums.push(...[20]);
     console.log("base collection: ", nums);
-    // let remaining_nums = [...nums];
-    // let common_factors = [remaining_nums[0]];
-    // remaining_nums.shift();
-    
-    // for(let j of remaining_nums) {
-    //     for(let k of common_factors){
-    //         remaining_nums = remaining_nums.filter((n) => !(n % k === 0))
-    //     }
-    //     if(remaining_nums[0]){
-    //         common_factors.push(remaining_nums[0]);
-    //         remaining_nums.shift();
-    //     }
-    // }
-    // console.log("common factors: ", common_factors);
-    // let product = common_factors.reduce((p,c) => p*c, 1);
     let smallest_factor = lcm(nums);
     console.log("lcm number: ", smallest_factor);
     let all_nums = [];
@@ -57,10 +41,9 @@ function sum_mult_triangnum(n, m) {
     return all_nums.reduce((p,c) => p+c, 0);
 }
 test("(3, 5)", sum_mult_triangnum(3, 5), 90);
-// test("(5, 8)", sum_mult_triangnum(5, 8), 1080); // 30, 60, 90, 120, 150, 180, 210 and 240
-// test("(7, 10)", sum_mult_triangnum(7, 10), 23100); // 420, 840, 1260, 1680, 2100, 2520, 2940, 3360, 3780, 4200
-// test("(10, 15)", sum_mult_triangnum(10, 15), 1663200); // 13860, 27720, 41580, 55440, 69300, 83160, 97020, 110880, 124740, 138600, 152460, 166320, 180180, 194040, 207900
-// test("(100, 203)", sum_mult_triangnum(100, 203), 1663200);
+test("(5, 8)", sum_mult_triangnum(5, 8), 1080); // 30, 60, 90, 120, 150, 180, 210 and 240
+test("(7, 10)", sum_mult_triangnum(7, 10), 23100); // 420, 840, 1260, 1680, 2100, 2520, 2940, 3360, 3780, 4200
+test("(10, 15)", sum_mult_triangnum(10, 15), 1663200); // 13860, 27720, 41580, 55440, 69300, 83160, 97020, 110880, 124740, 138600, 152460, 166320, 180180, 194040, 207900
 
 function test(description, output, actual){
   if(output===actual){
