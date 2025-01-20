@@ -8,5 +8,5 @@ function validateMessage(msg) {
   if(msg.length === 0 || msg.length > 255){
     throw new RangeError(`Message contains ${msg.length} characters!`);
   }
-  return !msg.match(/.*<.*>.*/);
+  return !(/<.*>/).test(msg);
 }
