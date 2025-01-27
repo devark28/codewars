@@ -4,9 +4,9 @@ function minSum(arr) {
 }
 
 // using parameter scope to sort
-// function minSum(arr, sorted=arr.sort((a,b)=>b-a)) {
-//   return Array(sorted.length/2).fill(null).map(() => sorted.shift()*sorted.pop()).reduce((acc,num)=>acc+num,0);
-// }
+function _minSum(arr, sorted=arr.sort((a,b)=>b-a)) {
+  return Array(sorted.length/2).fill(null).map(() => sorted.shift()*sorted.pop()).reduce((acc,num)=>acc+num,0);
+}
 
 console.log(minSum([5,4,2,3])); // [ 5, 4, 3, 2 ]
 console.log(minSum([12,6,10,26,3,24])); // [ 26, 24, 12, 10, 6, 3 ]
