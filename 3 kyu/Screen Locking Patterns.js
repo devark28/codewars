@@ -1,38 +1,38 @@
 const nodes = {
   'A': {
-    inAccessibles: ['C', 'I', 'G', 'A'],
+    inAccessibles: ['C', 'I', 'G'],
     blocking: [],
   },
   'B': {
-    inAccessibles: ['H', 'B'],
+    inAccessibles: ['H'],
     blocking: ['AC', 'CA'],
   },
   'C': {
-    inAccessibles: ['A', 'G', 'I', 'C'],
+    inAccessibles: ['A', 'G', 'I'],
     blocking: [],
   },
   'D': {
-    inAccessibles: ['F', 'D'],
+    inAccessibles: ['F'],
     blocking: ['AG', 'GA'],
   },
   'E': {
-    inAccessibles: ['E'],
+    inAccessibles: [],
     blocking: ['AI', 'BH', 'CG', 'DF', 'FD', 'GC', 'HB', 'IA'],
   },
   'F': {
-    inAccessibles: ['D', 'F'],
+    inAccessibles: ['D'],
     blocking: ['CI', 'IC'],
   },
   'G': {
-    inAccessibles: ['A', 'C', 'I', 'G'],
+    inAccessibles: ['A', 'C', 'I'],
     blocking: [],
   },
   'H': {
-    inAccessibles: ['B', 'H'],
+    inAccessibles: ['B'],
     blocking: ['GI', 'IG'],
   },
   'I': {
-    inAccessibles: ['G', 'A', 'C', 'I'],
+    inAccessibles: ['G', 'A', 'C'],
     blocking: [],
   },
 };
@@ -69,8 +69,8 @@ function makeWindowNode(node, visited = []) {
 
 function getAccessibles(node, visited) {
   return Object.keys(nodes).filter((n) => {
-    if(node === n) return false;
-    
+    if(node === n || visited.includes(n)) return false;
+
     const unblocked = visited.reduce(
       (acc, v) => acc || nodes[v].blocking.includes(node+n),
       false
@@ -84,6 +84,6 @@ function getAccessibles(node, visited) {
           )
         );
     }
-    return !inAccessibles.concat(visited).includes(n);
+    return !inAccessibles.includes(n);
   });
 }
