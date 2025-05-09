@@ -55,7 +55,6 @@ function countPatternsFrom(firstPoint, length) {
       }, []);
     }
   }
-  // console.log(firstPoint, length, "->", window);
   return window.reduce((acc, wn) => acc + wn.accessibles.length, 0);
 }
 
@@ -71,19 +70,12 @@ function getAccessibles(node, visited) {
   return Object.keys(nodes).filter((n) => {
     if(node === n || visited.includes(n)) return false;
 
-    const unblocked = visited.reduce(
-      (acc, v) => acc || nodes[v].blocking.includes(node+n),
-      false
-    );
-    let inAccessibles = nodes[node].inAccessibles;
-    if(unblocked){
-      inAccessibles = nodes[node].inAccessibles.filter(
-        (nn) => !visited.reduce(
-            (acc, v) => acc || nodes[v].blocking.includes(node+n),
-            false
-          )
-        );
-    }
+    const inAccessibles = nodes[node].inAccessibles.filter(
+      (nn) => !visited.reduce(
+          (acc, v) => acc || nodes[v].blocking.includes(node+n),
+          false
+        )
+      );
     return !inAccessibles.includes(n);
   });
 }
