@@ -11,6 +11,6 @@ function just_fetch(url){
     .catch((e) => rej(e))
   });
 }
-just_fetch("https://jsonplaceholder.typicode.com/")
+just_fetch("https://jsonplaceholder.typicode.com/todos/1")
   .then((d) => console.log(d))
   .catch((e) => console.log(e.message))
