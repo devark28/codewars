@@ -1,5 +1,16 @@
-function just_fetch(){
-  return fetch("https://jsonplaceholder.typicode.com/");
+function just_fetch(url){
+  return new Promise((res, rej) => {
+    fetch(url)
+    .then((r) => {
+      if(!r.ok){
+        throw new Error("Not cool! " + r.status)
+      }
+      return r.json()
+    })
+    .then((d) => res(d))
+    .catch((e) => rej(e))
+  });
 }
-
-just_fetch().then((d) => console.log(d))
+just_fetch("https://jsonplaceholder.typicode.com/")
+  .then((d) => console.log(d))
+  .catch((e) => console.log(e.message))
